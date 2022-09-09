@@ -15,16 +15,24 @@
     //set the Requested for value to the currently logged in user.
     try {
         if (g_form.isNewRecord()) {
-			//Set current logged in user as default requested for.
+            //Set current logged in user as default requested for.
             g_form.setValue('u_requested_for', g_user.userID);
 
-			//Set When Needed to current data as default.
+            //Set When Needed to current data as default.
             var currentdate = formatDate(new Date(), g_user_date_time_format);
-            g_form.setValue('u_when_needed', currentdate);
+			g_form.setValue('u_when_needed', currentdate);
+			
+            //if (g_form.getValue(u_when_needed) != '') {
+              //  g_form.setValue('u_when_needed', currentdate);
+            //}
+
+            if (g_scratchpad.shortDescription != '') {
+                g_form.setValue('short_description', 'Usage of g_scratchpad : ' + g_scratchpad.shortDescription);
+            }
         }
-    }catch(err){
-		g_form.addErrorMessage(err);
-	}
+    } catch (err) {
+        g_form.addErrorMessage(err);
+    }
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -32,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>28b3b06a97911110a54377d71153afa1</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>NeedIt Set Requested for</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -40,7 +48,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_client_28b3b06a97911110a54377d71153afa1</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-08-19 12:34:43</sys_updated_on>
+        <sys_updated_on>2022-08-31 20:16:56</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <type>onLoad</type>
         <ui_type>10</ui_type>

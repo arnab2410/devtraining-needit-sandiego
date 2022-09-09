@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="DELETE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.ClassGetManager</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Accepts sys user  and returns manager name</description>
+        <name>ClassGetManager</name>
+        <script><![CDATA[var ClassGetManager = Class.create();
+
+ClassGetManager.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getManagerName: function() {
+
+        var sysid = this.getParameter("sysparam_requestedFor");
+        gs.addInfoMessage("sysid " + sysid);
+
+        var managername = '';
+        var empname = new GlideRecord('sys_user');
+        empname.addQuery('sys_id', sysid);
+        empname.query();
+
+        if (empname.next()) {
+            gs.addInfoMessage("manager " + empname.manager);
+            managername = empname.manager;
+        }
+        return managername.getDisplayValue();
+    },
+    type: ' ClassGetManager'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 16:55:28</sys_created_on>
+        <sys_id>db7c3d9f97e11110a54377d71153af50</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>ClassGetManager</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_db7c3d9f97e11110a54377d71153af50</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 18:57:51</sys_updated_on>
+    </sys_script_include>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>cc4322b0dbd3a850c6e711f8489619a2</instance_id>
+        <instance_name>dev109517</instance_name>
+        <name>sys_script_include_db7c3d9f97e11110a54377d71153af50</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;x_58872_needit.ClassGetManager&lt;/api_name&gt;&lt;caller_access/&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description&gt;Accepts sys user  and returns manager name&lt;/description&gt;&lt;name&gt;ClassGetManager&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var ClassGetManager = Class.create();
+
+ClassGetManager.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    getManagerName: function() {
+
+        var sysid = this.getParameter("sysparam_requestedFor");
+        gs.addInfoMessage("sysid " + sysid);
+
+        var managername = '';
+        var empname = new GlideRecord('sys_user');
+        empname.addQuery('sys_id', sysid);
+        empname.query();
+
+        if (empname.next()) {
+            gs.addInfoMessage("manager " + empname.manager);
+            managername = empname.manager;
+        }
+        return managername.getDisplayValue();
+    },
+    type: ' ClassGetManager'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-08-31 16:55:28&lt;/sys_created_on&gt;&lt;sys_id&gt;db7c3d9f97e11110a54377d71153af50&lt;/sys_id&gt;&lt;sys_mod_count&gt;19&lt;/sys_mod_count&gt;&lt;sys_name&gt;ClassGetManager&lt;/sys_name&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy&gt;read&lt;/sys_policy&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_db7c3d9f97e11110a54377d71153af50&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-08-31 18:57:51&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>270605034</payload_hash>
+        <record_name>ClassGetManager</record_name>
+        <reverted_from/>
+        <source>e1749ac607101110574ff7208c1ed0a3</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 18:57:51</sys_created_on>
+        <sys_id>ae29de1b97651110a54377d71153af27</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182f5444fd10000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 18:57:51</sys_updated_on>
+        <type>Script Include</type>
+        <update_guid>a629de1b536511109c867738da805927</update_guid>
+        <update_guid_history>a629de1b536511109c867738da805927:270605034,a18716d7f46511102b24be0a4e350ec3:532667718,19f41657866511105111539a347fc320:-635657641,57c412d3de651110470b20d3e28155f1:-1629878112,5ef392d3646511101b9660f256987c4c:-614249938,9b425e5395651110e7663180793bf4dd:-1193895033,d21212935865111005da3d9c94a7e708:915236585,1241de53d465111041a5320d7792ab93:-265600245,f6219653db651110e81c2adddbd9e92e:-389602652,fd215e5301651110d78857b17c03411a:203167333,eaf09a53ce651110783ca654038bb447:-511084916,4e5012530a65111037dd07c465e9f06c:-2142114263,eab902db9b2511105740a230f80ea39d:-1670383343,af558e977d251110097848fb68e938b7:-2055163934,08d2c2173a2511107e3425ed76e638a6:-1269213651,3d81ce9310251110f2b2242f8f1abeee:630068445,44d08693cc2511105fd3d6ec2f4fafbe:-1462956600,5e4f751389251110b33e4644f9a4f66e:-1611500342,e33db5dfe8e111105178f5dd3be21dd5:-1678253465,0a2d75dfede111109d32f7e136881990:-867980704</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 19:07:43</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_include">sys_script_include</sys_db_object>
+        <sys_id>06b7c783903341048063ce3d1e4c8a81</sys_id>
+        <sys_metadata>db7c3d9f97e11110a54377d71153af50</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ClassGetManager</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent/>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_script_include_db7c3d9f97e11110a54377d71153af50</sys_update_name>
+        <sys_update_version display_value="sys_script_include_db7c3d9f97e11110a54377d71153af50">ae29de1b97651110a54377d71153af27</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 19:07:43</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Fill up manager name based on Requested For</description>
+        <field>u_requested_for</field>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>NeedIt Set Requested For Mgr</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+
+    if (isLoading && !g_form.isNewRecord() || newValue === '' || newValue == oldValue) {
+        return;
+    }
+    var ga = new GlideAjax('ClassGetManager');
+
+    ga.addParam('sysparm_Mgrname', 'getManagerName');
+    ga.addParam('sysparam_requestedFor', g_form.getValue('u_requested_for'));
+
+    ga.getXML(populateManagerName);
+
+    function populateManagerName(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+        g_form.addInfoMessage("answer " + answer);
+
+        //g_form.setValue('u_manager', answer);
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 16:47:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>df3abddb97e11110a54377d71153afc2</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>NeedIt Set Requested For Mgr</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_df3abddb97e11110a54377d71153afc2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 18:55:09</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</application>
+        <file_path/>
+        <instance_id>cc4322b0dbd3a850c6e711f8489619a2</instance_id>
+        <instance_name>dev109517</instance_name>
+        <name>sys_script_client_df3abddb97e11110a54377d71153afc2</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description&gt;Fill up manager name based on Requested For&lt;/description&gt;&lt;field&gt;u_requested_for&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;false&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;NeedIt Set Requested For Mgr&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+
+    if (isLoading &amp;&amp; !g_form.isNewRecord() || newValue === '' || newValue == oldValue) {
+        return;
+    }
+    var ga = new GlideAjax('ClassGetManager');
+
+    ga.addParam('sysparm_Mgrname', 'getManagerName');
+    ga.addParam('sysparam_requestedFor', g_form.getValue('u_requested_for'));
+
+    ga.getXML(populateManagerName);
+
+    function populateManagerName(response) {
+        var answer = response.responseXML.documentElement.getAttribute("answer");
+        g_form.addInfoMessage("answer " + answer);
+
+        //g_form.setValue('u_manager', answer);
+    }
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-08-31 16:47:30&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;df3abddb97e11110a54377d71153afc2&lt;/sys_id&gt;&lt;sys_mod_count&gt;22&lt;/sys_mod_count&gt;&lt;sys_name&gt;NeedIt Set Requested For Mgr&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="NeedIt" source="x_58872_needit"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="NeedIt"&gt;6ead8e780f603200cd674f8ce1050ed1&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_df3abddb97e11110a54377d71153afc2&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-08-31 18:55:09&lt;/sys_updated_on&gt;&lt;table&gt;x_58872_needit_needit&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1669155965</payload_hash>
+        <record_name>NeedIt Set Requested For Mgr</record_name>
+        <reverted_from/>
+        <source>e1749ac607101110574ff7208c1ed0a3</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 18:55:09</sys_created_on>
+        <sys_id>df889e1b97651110a54377d71153afe3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>182f541da420000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 18:55:09</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>d7889e1b1d651110186d70e0dfd041e3</update_guid>
+        <update_guid_history>d7889e1b1d651110186d70e0dfd041e3:-1669155965,fe5896d75365111004bcf16ad6433879:580164384,ce3896d76a651110613ac254444ab275:-1300205210,c7c61697b065111079b380469092be5b:-1900958490,3d8612d7f4651110609146c45ad9e43a:-657735674,a0561297746511105161ec0f2b5219bf:1332364934,7446d2975c6511105e597869e719e763:-1899011385,92a51a17a0651110f8baca2bc657d3c1:1057753144,b0d49617e7651110b13d15ae199e1f76:-860791715,ae521e93e7651110be5d300e3a310a54:-1941913639,31a09a135d651110b0537450c37c5451:-811487943,74254e970025111021d8ba5dd6e57514:1415022586,1515c65740251110cb8b80507d3c570a:1339482898,7c448a571025111008decf9d3925d9b9:-1071490135,f6d34a5730251110f3df5833da4bcfa6:-984388173,4950c293cf2511103d30ece9b1d8cb70:-213343746,c9ee75df5ee11110b96fc80c8bf8ee96:-1367161479,9ebef99f5ce11110a4935bf268c8c928:1636922481,b34d319f7ce11110156ade4c8ce1ee69:1236410715,ab6cbd5f78e111102dfe62cbf321e669:950562823,3b9bb51faee1111038ad77e8a6a0fdd9:-1430195360,c28bfddbc8e11110129ac7e278d49447:-1037784461,915b751f6ce1111040b292cb758c78ec:601819032</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-08-31 19:07:36</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>ceb678338bc8414898a0bed5080d3390</sys_id>
+        <sys_metadata>df3abddb97e11110a54377d71153afc2</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>NeedIt Set Requested For Mgr</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_parent display_value="NeedIt">edb4de0a07101110574ff7208c1ed089</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_scope_delete display_value="">94872a8897db403e8ee69a431de2fca4</sys_scope_delete>
+        <sys_update_name>sys_script_client_df3abddb97e11110a54377d71153afc2</sys_update_name>
+        <sys_update_version display_value="sys_script_client_df3abddb97e11110a54377d71153afc2">df889e1b97651110a54377d71153afe3</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-08-31 19:07:36</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
